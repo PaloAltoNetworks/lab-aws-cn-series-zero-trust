@@ -224,12 +224,12 @@ terraform output
 
 |              |            |
 | ------------ | ---------- |
-| **Username** | paloalto   |
+| **Username** | admin      |
 | **Password** | Paloalto@1 |
 
 **![](https://lh4.googleusercontent.com/T2Ogda1qIu8YcQJilleqEXfJR__0z8JPcyi9YfJzyi4z1bx6UI42TENnU7UPpbYHfpYtIyT4ypRDP2e-uzPzb4P9ObQxDGfiCAJCEbdCLhub9R0s-1gQ0zjQ-WqWc19Op5D5j_aPyT6fIUCIkg)**
 
-35. Once you have logged in, navigate to Panorama > Setup > Management, as shown in the figure below.
+35. Once you have logged in, navigate to Panorama > Setup > Interfaces, as shown in the figure below.
 
 ![](https://lh3.googleusercontent.com/KEse9NUtf_t0TJCiWsG2f5-cgVFGjBM8W0X1aw3jhGkjRZTUHwqr2cFXkeXfQTv6aruv1OLEorhjSdTcmKVBD6M1a_X0TDUCOq_mLHH3Vbeo1g7GXwXAKHqk0EpO7nbnWbsSOvwn1nMQ-PmCfg)
 
