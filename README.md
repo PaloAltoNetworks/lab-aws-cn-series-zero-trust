@@ -309,7 +309,7 @@ kubectl get pods -n sample-app
 45. On the CloudShell tab, run the below commands.
 
 ```
-MY_TOKEN=\`kubectl get serviceaccounts pan-plugin-user -n kube-system -o jsonpath='{.secrets\[0].name}'\`
+MY_TOKEN=`kubectl get serviceaccounts pan-plugin-user -n kube-system -o jsonpath='{.secrets\[0].name}'`
 ```
 
 ```
