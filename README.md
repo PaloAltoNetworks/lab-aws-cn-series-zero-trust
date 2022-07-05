@@ -174,7 +174,7 @@ rm -rf \*
 28. We will then start by cloning the following github repository:
 
 ```
-git clone https&#x3A;//github.com/PaloAltoNetworks/lab-aws-cn-series-zero-trust.git
+git clone https://github.com/PaloAltoNetworks/lab-aws-cn-series-zero-trust.git
 ```
 
 ![](https://lh6.googleusercontent.com/KTFszTOkh3NyoBLfdzZPoI8eXqwdpalZ_xe7l41XgNO0u7q0KKQaGAgDBwwYsF2nLZ6Ps77BrF7tgpm5UjoQlmpGto9aV3mplTAb_GwBM9Hj1oRMIkjYr_FJnbf3xsZQuY4maGd3XpLne2IeIg)
