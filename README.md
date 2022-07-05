@@ -54,7 +54,8 @@ At this point, Qwiklabs will build an AWS account for you. In order to access th
 
    - Make sure to note the location where the file is downloaded. On a Mac, by default, it will be downloaded to “/Users/&lt;username>/Downloads”
 
-5. If you are using a windows laptop to access this lab, you will need to have a ssh application like PuTTY installed. ![](https://lh4.googleusercontent.com/KztKlSkNNaQU61dPFGIAxrgDK8OSeSy6SGbcfPaO4Yji-EzBR_leZ02KN3u9_Twcj1qVL5B0OYOD_hZt2z1YWT5NQI53PzHl4HOzJAGxMz5EdedRkG3z62p7aouOzV-bAyWY3cDPJBwdkLrrpw)
+5. If you are using a windows laptop to access this lab, you will need to have a ssh application like PuTTY installed. 
+![](https://lh4.googleusercontent.com/KztKlSkNNaQU61dPFGIAxrgDK8OSeSy6SGbcfPaO4Yji-EzBR_leZ02KN3u9_Twcj1qVL5B0OYOD_hZt2z1YWT5NQI53PzHl4HOzJAGxMz5EdedRkG3z62p7aouOzV-bAyWY3cDPJBwdkLrrpw)
 
    - In this case, click on the “Download PPK” link. This will download a file named “qwikLABS-L\*\*\*\*\*-\*\*\*\*\*.ppk”.
 
