@@ -222,7 +222,7 @@ Before deploying the CN-Series firewalls, we need to configure the public IP add
 35. On the CloudShell tab, run the following commands. Note the Panorama public IP address.
 
 ```
-cd ~/panw-cn-series-aws-zero-trust/terraform/panorama
+cd ~/lab-aws-cn-series-zero-trust/terraform/panorama
 ```
 
 ```
@@ -259,7 +259,7 @@ terraform output
 41. Navigate back to the CloudShell tab and run the below commands. These commands are to deploy the CN-Series firewalls.
 
 ```
-cd ~/panw-cn-series-aws-zero-trust/terraform/cnseries/cn-series
+cd ~/lab-aws-cn-series-zero-trust/terraform/cnseries/cn-series
 ```
 
 ```
@@ -271,7 +271,7 @@ cd ~/panw-cn-series-aws-zero-trust/terraform/cnseries/cn-series
 42. Now, deploy the sample application by running the below commands.
 
 ```
-cd ~/panw-cn-series-aws-zero-trust/terraform/cnseries
+cd ~/lab-aws-cn-series-zero-trust/terraform/cnseries
 ```
 
 ```
