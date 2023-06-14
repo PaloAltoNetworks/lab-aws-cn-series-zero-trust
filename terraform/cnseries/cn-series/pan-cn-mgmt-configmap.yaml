@@ -13,6 +13,7 @@ data:
   PAN_TEMPLATE_STACK: "cnseries"
   PAN_CGNAME: "panorama"
   PAN_CTNR_MODE_TYPE: "k8s-service"
+  PAN_CSR_SIGNER_NAME: "beta.eks.amazonaws.com/app-serving"
 
 #Non-mandatory parameters
   # Recommended to have same name as the cluster name provided in Panorama Kubernetes plugin - helps with easier identification of pods if managing multiple clusters with same Panorama
