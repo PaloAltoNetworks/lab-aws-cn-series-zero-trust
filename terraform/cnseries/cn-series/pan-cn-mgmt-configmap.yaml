@@ -8,11 +8,12 @@ data:
   PAN_MGMT_SECRET: pan-mgmt-secret
 
   # Panorama settings
-  PAN_PANORAMA_IP: "35.182.55.251"
+  PAN_PANORAMA_IP: "__panorama_ip__"
   PAN_DEVICE_GROUP: "cnseries"
   PAN_TEMPLATE_STACK: "cnseries"
   PAN_CGNAME: "panorama"
   PAN_CTNR_MODE_TYPE: "k8s-service"
+  PAN_CSR_SIGNER_NAME: "beta.eks.amazonaws.com/app-serving"
 
 #Non-mandatory parameters
   # Recommended to have same name as the cluster name provided in Panorama Kubernetes plugin - helps with easier identification of pods if managing multiple clusters with same Panorama

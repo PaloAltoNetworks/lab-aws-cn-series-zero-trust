@@ -14,6 +14,10 @@
 # limitations under the License.
 ############################################################################################
 
+output "panorama_ip_address" {
+  value = aws_eip.elasticip.public_ip
+}
+
 output "eks_cluster_name" {
   value = aws_eks_cluster.ControlPlane.name
 }

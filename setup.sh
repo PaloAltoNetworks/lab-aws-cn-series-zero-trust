@@ -41,51 +41,7 @@ function install_kubectl() {
     mkdir -p ${HOME}/bin/ && cd ${HOME}/bin/ && curl -LO $KUBECTL_DOWNLOAD_URL && chmod +x kubectl
 }
 
-function install_aws_iam_authenticator() {
-    # Using whatever was the latest stable version at the time of development.
-    AWS_IAM_AUTH_VERSION="1.21.2"
-
-    # Check if aws-iam-authenticator is already installed and display the version as installed.
-    [[ -f ${HOME}/bin/aws-iam-authenticator ]] && echo -e "\naws-iam-authenticator is already installed at ${HOME}/bin/aws-iam-authenticator" && return 0
-
-    AWS_IAM_AUTH_DOWNLOAD_URL="https://s3.us-west-2.amazonaws.com/amazon-eks/$AWS_IAM_AUTH_VERSION/2021-07-05/bin/linux/amd64/aws-iam-authenticator"
-
-    # Download and install aws-iam-authenticator v1.21.2, move it to the bin folder
-    mkdir -p ${HOME}/bin/ && cd ${HOME}/bin/ && curl -o aws-iam-authenticator $AWS_IAM_AUTH_DOWNLOAD_URL && chmod +x aws-iam-authenticator
-}
-
-function deploy_panorama() {
-    cd "${HOME}/lab-aws-cn-series-zero-trust/terraform/panorama"
-
-    # Initialize terraform
-    echo -e "\nInitializing directory for lab resource deployment"
-    terraform init
-
-    # Deploy resources
-    echo -e "\nDeploying Panorama Resources required for Palo Alto Networks Reference Architecture for Zero Trust with VM-Series on AWS"
-    terraform apply -auto-approve
-
-    if [ $? -eq 0 ]; then
-        echo -e "\nPanorama for AWS Zero Trust Reference Architecture with VM-Series Lab Deployment Completed successfully!"
-    else
-        echo -e "\nPanorama for AWS Zero Trust Reference Architecture with VM-Series Lab Deployment Failed!"
-        exit 1
-    fi
-}
-
-function get_panorama_ip() {
-    cd "${HOME}/lab-aws-cn-series-zero-trust/terraform/panorama"
-
-    PANORAMA_IP=$(terraform output PANORAMA_IP_ADDRESS | sed -e 's/^"//' -e 's/"$//')
-    echo $PANORAMA_IP
-}
-
 function deploy_cnseries_lab() {
-
-    # Getting the public IP address of the newly deployed Panorama
-    echo -e "\nUpdating the Panorama IP in CN-Series config file for deployment"
-    HARD_CODED_PANORAMA_IP="35.182.55.251"
-    NEW_PANORAMA_IP=$(get_panorama_ip)
 
     # Assuming that this setup script is being run from the cloned github repo, changing the current working directory to one from where Terraform will deploy the lab resources.
     cd "${HOME}/lab-aws-cn-series-zero-trust/terraform/cnseries"
@@ -106,8 +62,14 @@ function deploy_cnseries_lab() {
         exit 1
     fi
 
+    # Getting the public IP address of the newly deployed Panorama
+    echo -e "\nUpdating the Panorama IP in CN-Series config file for deployment"
+    VM_AUTH_KEY="570151653332590"
+    PANORAMA_IP=$(terraform output panorama_ip_address | sed -e 's/^"//' -e 's/"$//')
+
     # Updating the Panorama IP in CN-Series config file for deployment
-    sed -i "s/$HARD_CODED_PANORAMA_IP/$NEW_PANORAMA_IP/" cn-series/pan-cn-mgmt-configmap.yaml
+    sed -i "s/__panorama_ip__/$PANORAMA_IP/" cn-series/pan-cn-mgmt-configmap.yaml
+    sed -i "s/__panorama_vm_auth_key__/$VM_AUTH_KEY/" cn-series/pan-cn-mgmt-secret.yaml
 
     KUBECTL_CONFIG_COMMAND=$(terraform output kubectl_config_command | sed -e 's/^"//' -e 's/"$//')
     KUBECTL_DEMO_APP_DEPLOYMENT_COMMAND=$(terraform output kubectl_demo_application_deployment_command | sed -e 's/^"//' -e 's/"$//')
@@ -154,7 +116,5 @@ function deploy_cnseries_lab() {
 install_prerequisites
 install_terraform
 install_kubectl
-install_aws_iam_authenticator
 
-deploy_panorama
 deploy_cnseries_lab

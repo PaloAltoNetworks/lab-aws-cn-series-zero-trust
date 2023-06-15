@@ -50,11 +50,14 @@ users:
 - name: aws
   user:
     exec:
-      apiVersion: client.authentication.k8s.io/v1alpha1
-      command: aws-iam-authenticator
+      apiVersion: client.authentication.k8s.io/v1beta1
+      command: aws
       args:
-        - "token"
-        - "-i"
+        - --region
+        - us-east-1
+        - eks
+        - get-token
+        - --cluster-name
         - "${aws_eks_cluster.ControlPlane.name}"
 KUBECONFIG
 

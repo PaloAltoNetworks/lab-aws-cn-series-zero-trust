@@ -290,7 +290,7 @@ resource "aws_internet_gateway" "igw" {
 
 // Elastic IP for the NAT gateway
 resource "aws_eip" "eip" {
-  vpc = true
+  # vpc = true
   tags = {
     Name = "${random_pet.prefix.id}-EIP"
   }

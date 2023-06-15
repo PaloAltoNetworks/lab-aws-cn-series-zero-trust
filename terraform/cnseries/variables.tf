@@ -22,7 +22,7 @@ variable "region" {
 
 variable "k8s_version" {
   type        = string
-  default     = "1.21"
+  default     = "1.22"
   description = "Kubernetes version"
 }
 
@@ -31,3 +31,13 @@ variable "instance_type" {
   default     = "m5.2xlarge"
   description = "The EC2 instance type"
 }
+
+variable "management-vpc" { default = {} }
+variable "management-vpc-subnets" { default = [] }
+variable "management-vpc-route-tables" { default = [] }
+variable "management-vpc-security-groups" { default = [] }
+variable "management-vpc-routes" { default = [] }
+variable "panorama" { default = {} }
+
+variable "prefix-name-tag" {}
+variable "global_tags" {}
