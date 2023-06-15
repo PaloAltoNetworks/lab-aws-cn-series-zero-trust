@@ -13,8 +13,5 @@ cd "${HOME}/lab-aws-cn-series-zero-trust/terraform/cnseries/cn-series"
 cd "${HOME}/lab-aws-cn-series-zero-trust/terraform/cnseries"
 terraform destroy -auto-approve
 
-cd "${HOME}/lab-aws-cn-series-zero-trust/terraform/panorama"
-terraform destroy -auto-approve
-
 cd "${HOME}/lab-aws-cn-series-zero-trust"
 git reset --hard
